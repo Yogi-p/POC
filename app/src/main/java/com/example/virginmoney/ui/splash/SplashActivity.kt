@@ -1,13 +1,10 @@
 package com.example.virginmoney.ui.splash
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virginmoney.R
 import com.example.virginmoney.ui.Navigator
-import com.example.virginmoney.ui.list.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

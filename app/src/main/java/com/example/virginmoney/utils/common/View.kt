@@ -1,7 +1,5 @@
 package com.example.virginmoney.utils.common
 
-import android.graphics.drawable.Drawable
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

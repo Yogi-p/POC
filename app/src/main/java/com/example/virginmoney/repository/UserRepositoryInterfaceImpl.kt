@@ -3,8 +3,8 @@ package com.example.virginmoney.repository
 import com.example.virginmoney.base.NetworkHandler
 import com.example.virginmoney.exception.Failure
 import com.example.virginmoney.models.BaseResponse
+import com.example.virginmoney.models.Rooms
 import com.example.virginmoney.models.User
-import com.example.virginmoney.models.UserDetails
 import com.example.virginmoney.network.UserService
 import retrofit2.Call
 import javax.inject.Inject
@@ -27,15 +27,14 @@ class UserRepositoryInterfaceImpl @Inject constructor(
         }
     }
 
-    override fun getUserDetailsDetails(movieId: Int): BaseResponse<Failure, UserDetails> {
+    override fun getRooms(): BaseResponse<Failure, List<Rooms>> {
         return when (networkHandler.isNetworkAvailable()) {
             true -> request(
-                service.getUserDetails(movieId),
-                {
-//                    it.toMovieDetails()
-                UserDetails()
-                },
-                UserDetails()
+                service.getRooms(),
+                { it.map {
+                    Rooms(it.id, it.createdAt, it.isOccupied,it.maxOccupancy)
+                } },
+                emptyList()
             )
             false -> BaseResponse.Failed(Failure.NetworkConnection)
         }

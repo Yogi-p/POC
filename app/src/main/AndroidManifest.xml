@@ -27,7 +27,7 @@
         </activity>
 
         <activity
-            android:name=".ui.list.MainActivity"
+            android:name=".ui.usersList.MainActivity"
             android:exported="true"/>
 
     </application>

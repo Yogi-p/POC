@@ -2,14 +2,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="BaseToolbarStyle">
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="android:theme">@style/BaseToolbarTheme</item>
         <item name="titleTextAppearance">@style/CustomTitleTextAppearance</item>
     </style>
 
-    <style name="BaseToolbarTheme">
-        <item name="backgroundColor">@color/primary</item>
-        <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:textColorSecondary">@color/white</item>
+    <style name="ActionBarTheme" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/primary</item>
     </style>
 
     <style name="CustomTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">

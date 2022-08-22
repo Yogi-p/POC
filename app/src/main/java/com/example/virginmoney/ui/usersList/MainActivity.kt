@@ -1,13 +1,10 @@
-package com.example.virginmoney.ui.list
+package com.example.virginmoney.ui.usersList
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import com.example.virginmoney.R
 import com.example.virginmoney.base.BaseActivity
-import com.example.virginmoney.base.BaseFragment
+import com.example.virginmoney.ui.TabFragment
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
@@ -16,5 +13,5 @@ class MainActivity : BaseActivity() {
         fun callingIntent(context: Context) = Intent(context, MainActivity::class.java)
     }
 
-    override fun fragment() = UserListFragment()
+    override fun fragment() = TabFragment()
 }

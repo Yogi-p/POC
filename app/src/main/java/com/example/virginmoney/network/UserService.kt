@@ -9,6 +9,6 @@ class UserService @Inject constructor(retrofit: Retrofit) : UserApi {
     private val usersApi by lazy { retrofit.create(UserApi::class.java) }
 
     override fun getUsers() = usersApi.getUsers()
-    override fun getUserDetails(movieId: Int) = usersApi.getUserDetails(movieId)
+    override fun getRooms() = usersApi.getRooms()
 
 }

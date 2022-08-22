@@ -8,35 +8,11 @@ sealed class BaseResponse<out L, out R> {
     /** * Represents the right side of [BaseResponse] class which by convention is a "Success". */
     data class Success<out R>(val b: R) : BaseResponse<Nothing, R>()
 
-    /**
-     * Returns true if this is a Right, false otherwise.
-     * @see Right
-     */
-    val isRight get() = this is Success<R>
 
     /**
-     * Returns true if this is a Left, false otherwise.
-     * @see Left
-     */
-    val isLeft get() = this is Failed<L>
-
-    /**
-     * Creates a Left type.
-     * @see Left
-     */
-    fun <L> left(a: L) = BaseResponse.Failed(a)
-
-
-    /**
-     * Creates a Left type.
-     * @see Right
-     */
-    fun <R> right(b: R) = BaseResponse.Success(b)
-
-    /**
-     * Applies fnL if this is a Left or fnR if this is a Right.
-     * @see Left
-     * @see Right
+     * Applies fnL if this is a Failed or fnR if this is a Success.
+     * @see Failed
+     * @see Success
      */
     fun fold(fnL: (L) -> Any, fnR: (R) -> Any): Any =
         when (this) {
@@ -45,51 +21,6 @@ sealed class BaseResponse<out L, out R> {
         }
 }
 
-/**
- * Composes 2 functions
- * See <a href="https://proandroiddev.com/kotlins-nothing-type-946de7d464fb">Credits to Alex Hart.</a>
- */
-fun <A, B, C> ((A) -> B).c(f: (B) -> C): (A) -> C = {
-    f(this(it))
-}
 
-/**
- * Right-biased flatMap() FP convention which means that Right is assumed to be the default case
- * to operate on. If it is Left, operations like map, flatMap, ... return the Left value unchanged.
- */
-fun <T, L, R> BaseResponse<L, R>.flatMap(fn: (R) -> BaseResponse<L, T>): BaseResponse<L, T> =
-    when (this) {
-        is BaseResponse.Failed -> BaseResponse.Failed(a)
-        is BaseResponse.Success -> fn(b)
-    }
 
-/**
- * Right-biased map() FP convention which means that Right is assumed to be the default case
- * to operate on. If it is Left, operations like map, flatMap, ... return the Left value unchanged.
- */
-fun <T, L, R> BaseResponse<L, R>.map(fn: (R) -> (T)): BaseResponse<L, T> = this.flatMap(fn.c(::right))
 
-/** Returns the value from this `Right` or the given argument if this is a `Left`.
- *  Right(12).getOrElse(17) RETURNS 12 and Left(12).getOrElse(17) RETURNS 17
- */
-fun <L, R> BaseResponse<L, R>.getOrElse(value: R): R =
-    when (this) {
-        is BaseResponse.Failed -> value
-        is BaseResponse.Success -> b
-    }
-
-/**
- * Left-biased onFailure() FP convention dictates that when this class is Left, it'll perform
- * the onFailure functionality passed as a parameter, but, overall will still return an BaseResponse
- * object so you chain calls.
- */
-fun <L, R> BaseResponse<L, R>.onFailure(fn: (failure: L) -> Unit): BaseResponse<L, R> =
-    this.apply { if (this is BaseResponse.Failed) fn(a) }
-
-/**
- * Right-biased onSuccess() FP convention dictates that when this class is Right, it'll perform
- * the onSuccess functionality passed as a parameter, but, overall will still return an BaseResponse
- * object so you chain calls.
- */
-fun <L, R> BaseResponse<L, R>.onSuccess(fn: (success: R) -> Unit): BaseResponse<L, R> =
-    this.apply { if (this is BaseResponse.Success) fn(b) }

@@ -1,4 +1,4 @@
-package com.example.virginmoney.ui.list
+package com.example.virginmoney.ui.usersList
 
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +7,7 @@ import com.example.virginmoney.R
 import com.example.virginmoney.models.User
 import com.example.virginmoney.utils.common.inflate
 import com.example.virginmoney.utils.common.loadFromUrl
+import empty
 import kotlinx.android.synthetic.main.row_user.view.*
 import javax.inject.Inject
 import kotlin.properties.Delegates
@@ -30,7 +31,7 @@ class UserAdapter @Inject constructor() : RecyclerView.Adapter<UserAdapter.ViewH
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: User, clickListener: (User) -> Unit) {
             itemView.avatar.loadFromUrl(user.avatar)
-            itemView.name.text = user.firstName + " " + user.lastName
+            itemView.name.text = user.firstName + String.empty() + user.lastName
             itemView.jobTitle.text = user.jobtitle
             itemView.email.text = user.email
             itemView.setOnClickListener {

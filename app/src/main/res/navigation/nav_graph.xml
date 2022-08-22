@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/userListFragment">
+
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.example.virginmoney.ui.usersList.UserListFragment"
+        android:label="UserListFragment" />
+
+    <fragment
+        android:id="@+id/userRoomFragment"
+        android:name="com.example.virginmoney.ui.rooms.UserRoomFragment"
+        android:label="UserRoomFragment" />
+</navigation>

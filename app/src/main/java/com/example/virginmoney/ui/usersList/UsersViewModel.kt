@@ -1,4 +1,4 @@
-package com.example.virginmoney.ui.list
+package com.example.virginmoney.ui.usersList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

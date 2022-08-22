@@ -10,4 +10,8 @@
     <string name="placeholder_name">Name</string>
     <string name="placeholder_job_title">Job Title</string>
     <string name="placeholder_email">Email</string>
+
+    <string name="placeholder_room_no">Room No:</string>
+    <string name="placeholder_max_ocupancy">0</string>
+    <string name="occupied">Yes</string>
 </resources>
