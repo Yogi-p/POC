@@ -19,6 +19,19 @@ sealed class BaseResponse<out L, out R> {
             is Failed -> fnL(a)
             is Success -> fnR(b)
         }
+
+    /**
+     * Returns true if this is a Success, false otherwise.
+     * @see Success
+     */
+    val isSuccess get() = this is Success<R>
+
+    /**
+     * Returns true if this is a Failed, false otherwise.
+     * @see Success
+     */
+    val isFailed get() = this is Failed<L>
+
 }
 
 

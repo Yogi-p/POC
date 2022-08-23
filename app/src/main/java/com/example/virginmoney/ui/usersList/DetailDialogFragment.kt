@@ -68,9 +68,9 @@ class DetailDialogFragment : DialogFragment() {
     private fun setupView() {
         binding.avatar.loadFromUrl(arguments?.getString(KEY_AVATAR))
         binding.name.text = String.format(getString(R.string.placeholder_name),  arguments?.getString(KEY_TITLE))
-        binding.jobTitle.text = String.format(getString(R.string.placeholder_name), arguments?.getString(KEY_JOBTITLE))
-        binding.email.text = String.format(getString(R.string.placeholder_name) , arguments?.getString(KEY_EMAIL))
-        binding.color.text = String.format(getString(R.string.placeholder_name) , arguments?.getString(KEY_FAV_COLOR))
+        binding.jobTitle.text = String.format(getString(R.string.placeholder_job_title), arguments?.getString(KEY_JOBTITLE))
+        binding.email.text = String.format(getString(R.string.placeholder_email) , arguments?.getString(KEY_EMAIL))
+        binding.color.text = String.format(getString(R.string.placeholder_fav_color) , arguments?.getString(KEY_FAV_COLOR))
     }
 
     private fun setupClickListeners(view: View) {
