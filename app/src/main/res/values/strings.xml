@@ -7,9 +7,10 @@
     <string name="failure_network_connection">No Network Connection.</string>
     <string name="failure_server_error">Server Error</string>
     <string name="failure_user_list_unavailable">Users Unavailable.</string>
-    <string name="placeholder_name">Name</string>
-    <string name="placeholder_job_title">Job Title</string>
-    <string name="placeholder_email">Email</string>
+    <string name="placeholder_name">Name : %s</string>
+    <string name="placeholder_job_title">Job Title: %s</string>
+    <string name="placeholder_email">Email: %s</string>
+    <string name="placeholder_fav_color">Favourite Color: %s</string>
 
     <string name="placeholder_room_no">Room No:</string>
     <string name="placeholder_max_ocupancy">0</string>

@@ -21,7 +21,7 @@
 
         <ImageView
             android:id="@+id/avatar"
-            android:layout_width="@dimen/image_height"
+            android:layout_width="@dimen/image_width"
             android:layout_height="@dimen/image_width"
             card_view:layout_constraintLeft_toLeftOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />

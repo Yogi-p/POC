@@ -9,6 +9,7 @@ import com.example.virginmoney.R
 import com.example.virginmoney.base.BaseFragment
 import com.example.virginmoney.exception.Failure
 import com.example.virginmoney.models.User
+import com.example.virginmoney.ui.Navigator
 import com.example.virginmoney.utils.common.invisible
 import com.example.virginmoney.utils.common.visible
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +23,9 @@ class UserListFragment : BaseFragment() {
 
     @Inject
     lateinit var userAdapter: UserAdapter
+
+    @Inject
+    lateinit var navigator: Navigator
 
     private val userViewModel: UsersViewModel by viewModels()
 
@@ -47,7 +51,7 @@ class UserListFragment : BaseFragment() {
         userList.layoutManager = LinearLayoutManager(context)
         userList.adapter = userAdapter
         userAdapter.clickListener = { user ->
-//            navigator.showDialogFragment(requireActivity(), movie, navigationExtras)
+            navigator.showUserDetails(requireActivity().supportFragmentManager, user)
         }
     }
 

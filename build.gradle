@@ -24,13 +24,15 @@ buildscript {
     ext.buildToolsVersion = '4.2.0'
     ext.glide_version = '4.11.0'
     ext.nav_version = '2.3.5'
+    ext.junit4_version = '4.13.2'
+    ext.mockk_version = '1.10.0'
+    ext.robolectric_version = '4.4'
 }
 
 plugins {
     id 'com.android.application' version '7.1.2' apply false
     id 'com.android.library' version '7.1.2' apply false
     id 'org.jetbrains.kotlin.android' version '1.6.21' apply false
-//    id 'com.google.dagger.hilt.android' version '2.41' apply false
 }
 
 task clean(type: Delete) {
